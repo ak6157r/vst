@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ICCID1</th>
+                <th>IMSI1</th>
+                <th>MSISDN1</th>
+                <th>ICCID2</th>
+                <th>IMSI2</th>
+                <th>MSISDN2</th>
+                <th>IMEI</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.ICCID1}}</td>
+                <td>{{item.IMSI1}}</td>
+                <td>{{item.MSISDN1}}</td>
+                <td>{{item.ICCID2}}</td>
+                <td>{{item.IMSI2}}</td>
+                <td>{{item.MSISDN2}}</td>
+                <td>{{item.IMEI}}</td>
+                <td>{{item.STATUS}}</td>
+                <td><a href="{% url 'update' item.id %}" class="btn btn-warning btn-md">Update</a></td>
+                <td><a href="{% url 'delete' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

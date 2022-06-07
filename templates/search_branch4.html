@@ -1,0 +1,38 @@
+{% extends 'base3.html' %}
+
+{% block body %}
+<center>
+    {% if searches %}
+    <h1>You Searched For: {{ searches }}</h1>
+    <br>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ICCID2</th>
+                    <th>MSISDN2</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in group %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.ICCID2}}</td>
+                    <td>{{item.MSISDN2}}</td>
+                    <td>{{item.STATUS}}</td>
+                    <td><a href="{% url 'update2branch3' item.id %}" class="btn btn-warning btn-md">Update</a></td>
+                    <td><a href="{% url 'delete2branch3' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <h1>Type something to search</h1>
+    {% endif %}
+    </div>
+</center>
+
+
+{% endblock %}

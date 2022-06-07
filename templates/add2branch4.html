@@ -1,0 +1,16 @@
+{% extends 'base4.html' %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="col-4">
+        <form action="{% url 'add2branch4' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-primary btn-md">ADD</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
