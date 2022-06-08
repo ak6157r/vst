@@ -272,7 +272,7 @@ def export_csv_branch2(request):
     writer.writerow(['ICCID1', 'MSISDN1', 'STATUS'])
     
     for branch in branch1:
-        writer.writerow([branch.ICCID1, branch.MSISDN1, branch.STATUS])
+        writer.writerow([branch.iccid1, branch.msisdn1, branch.status])
     
     return response
 
@@ -287,7 +287,7 @@ def export_csv_branch3(request):
     writer.writerow(['ICCID2', 'MSISDN2', 'STATUS'])
     
     for branch in branch2:
-        writer.writerow([branch.ICCID2, branch.MSISDN2, branch.STATUS])
+        writer.writerow([branch.iccid2, branch.msisdn2, branch.status])
     
     return response
 
@@ -302,7 +302,7 @@ def export_csv_branch4(response):
     writer.writerow(['ICCID1', 'IMEI', 'SERIAL', 'STATUS'])
     
     for branch in branch3:
-        writer.writerow([branch.ICCID1, branch.IMEI, branch.SERIAL, branch.STATUS])
+        writer.writerow([branch.iccid1, branch.imei, branch.serial, branch.status])
         
     return response
 
