@@ -17,32 +17,32 @@ class Items(models.Model):
     STATUS = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
     
 class Branch1(models.Model):
-    ICCID1 = models.CharField(max_length=50,blank=False)
-    MSISDN1 = models.CharField(max_length=50,blank=False)
+    iccid1 = models.CharField(max_length=50,blank=False)
+    msisdn1 = models.CharField(max_length=50,blank=False)
     choices = (
         ('ACTIVE','active'),
         ('INACTIVE','not active'),
     )
-    STATUS = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
+    status = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
     
 class Branch2(models.Model):
-    ICCID2 = models.CharField(max_length=50,blank=False)
-    MSISDN2 = models.CharField(max_length=50,blank=False)
+    iccid2 = models.CharField(max_length=50,blank=False)
+    msisdn2 = models.CharField(max_length=50,blank=False)
     choices = (
         ('ACTIVE','active'),
         ('INACTIVE','not active'),
     )
-    STATUS = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
+    status = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
     
 class Branch3(models.Model):
-    ICCID1 = models.CharField(max_length=50,blank=False)
-    IMEI = models.CharField(max_length=50,blank=False)
-    SERIAL = models.CharField(max_length=50,blank=False)
+    iccid1 = models.CharField(max_length=50,blank=False)
+    imei = models.CharField(max_length=50,blank=False)
+    serial = models.CharField(max_length=50,blank=False)
     choices = (
         ('ACTIVE','active'),
         ('INACTIVE','not active'),
     )
-    STATUS = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
+    status = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
     
     
     

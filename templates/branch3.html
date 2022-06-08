@@ -16,9 +16,9 @@
             {% for item in branch3 %}
             <tr>
                 <td>{{item.id}}</td>
-                <td>{{item.ICCID2}}</td>
-                <td>{{item.MSISDN2}}</td>
-                <td>{{item.STATUS}}</td>
+                <td>{{item.iccid2}}</td>
+                <td>{{item.msisdn2}}</td>
+                <td>{{item.status}}</td>
                 <td><a href="{% url 'update2branch3' item.id %}" class="btn btn-warning btn-md">Update</a></td>
                 <td><a href="{% url 'delete2branch3' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
             </tr>

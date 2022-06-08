@@ -17,10 +17,10 @@
             {% for item in branch4 %}
             <tr>
                 <td>{{item.id}}</td>
-                <td>{{item.ICCID1}}</td>
-                <td>{{item.IMEI}}</td>
-                <td>{{item.SERIAL}}</td>
-                <td>{{item.STATUS}}</td>
+                <td>{{item.iccid1}}</td>
+                <td>{{item.imei}}</td>
+                <td>{{item.serial}}</td>
+                <td>{{item.status}}</td>
                 <td><a href="{% url 'update2branch4' item.id %}" class="btn btn-warning btn-md">Update</a></td>
                 <td><a href="{% url 'delete2branch4' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
             </tr>
