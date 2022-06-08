@@ -74,10 +74,7 @@ def upload(request):
 
 def branch2(request):
     branch1 = Branch1.objects.all()
-    context = {
-        'branch1':branch1
-    }
-    return render(request,'branch1.html',context)
+    return render(request,'branch1.html',{'branch1':branch1})
 
 def add2branch2(request):
     form = Branch1Form()
