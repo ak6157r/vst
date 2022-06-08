@@ -1,4 +1,4 @@
-{% extends 'base3.html' %}
+{% extends 'base4.html' %}
 
 {% block body %}
 <center>
@@ -10,22 +10,24 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>ICCID2</th>
+                    <th>ICCID1(M)</th>
+                    <th>STATUS(M)</th>
+                    <th>ICCID1</th>
                     <th>IMEI</th>
                     <th>SERIAL</th>
                     <th>STATUS</th>
                 </tr>
             </thead>
             <tbody>
-                {% for item in groups %}
+                {% for item in ig %}
                 <tr>
                     <td>{{item.id}}</td>
                     <td>{{item.ICCID1}}</td>
-                    <td>{{item.IMEI}}</td>
-                    <td>{{item.SERIAL}}</td>
                     <td>{{item.STATUS}}</td>
-                    <td><a href="{% url 'update2branch4' item.id %}" class="btn btn-warning btn-md">Update</a></td>
-                    <td><a href="{% url 'delete2branch4' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
+                    <td>{{item.iccid1}}</td>
+                    <td>{{item.imei}}</td>
+                    <td>{{item.serial}}</td>
+                    <td>{{item.status}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

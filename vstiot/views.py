@@ -145,8 +145,10 @@ def search_branch4(request):
     if request.method == "POST":
         searches = request.POST['searches']
         if request.method == "POST":
+            item = Items.objects.filter(Q(ICCID2__contains=searches)|Q(MSISDN2__contains=searches)|Q(STATUS__contains=searches))
             group = Branch2.objects.filter(Q(iccid2__contains=searches)|Q(msisdn2__contains=searches)|Q(status__contains=searches))
-            return render(request,'search_branch4.html',{'searches':searches,'group':group})
+            qz = chain(item, group)
+            return render(request,'search_branch4.html',{'searches':searches,'qz':qz})
     return render(request,'search_branch4.html')
 
 def add2branch3(request):
@@ -311,8 +313,10 @@ def search_branch5(request):
     if request.method == "POST":
         searchz = request.POST['searchz']
         if request.method == "POST":
+            itemm = Items.objects.filter(Q(ICCID1__contains=searchz)|Q(STATUS__contains=searchz))
             groups = Branch3.objects.filter(Q(iccid1__contains=searchz)|Q(imei__contains=searchz)|Q(serial__contains=searchz)|Q(status__contains=searchz))
-            return render(request,'search_branch5.html',{'searchz':searchz,'groups':groups})
+            ig = chain(itemm,groups)
+            return render(request,'search_branch5.html',{'searchz':searchz, 'ig':ig})
     return render(request,'search_branch5.html')
 
     

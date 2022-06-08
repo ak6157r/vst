@@ -10,20 +10,24 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>ICCID2(M)</th>
+                    <th>MSISDN2(M)</th>
+                    <th>STATUS(M)</th>
                     <th>ICCID2</th>
                     <th>MSISDN2</th>
                     <th>STATUS</th>
                 </tr>
             </thead>
             <tbody>
-                {% for item in group %}
+                {% for item in qz %}
                 <tr>
                     <td>{{item.id}}</td>
                     <td>{{item.ICCID2}}</td>
                     <td>{{item.MSISDN2}}</td>
                     <td>{{item.STATUS}}</td>
-                    <td><a href="{% url 'update2branch3' item.id %}" class="btn btn-warning btn-md">Update</a></td>
-                    <td><a href="{% url 'delete2branch3' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
+                    <td>{{item.iccid2}}</td>
+                    <td>{{item.msisdn2}}</td>
+                    <td>{{item.status}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
