@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in items %}
+            {% for item in item_list %}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.ICCID1}}</td>
@@ -34,5 +34,30 @@
             {% endfor %}
         </tbody>
     </table>
+    <br>
+    <center>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if item_list.has_previous %}
+                    <strong><li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li></strong>
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ item_list.previous_page_number }}">Previous</a></li></strong>
+                {% endif %}
+
+                <!--<li class="page-item disabled"><a href="#" class="page-link">Page {{ item_list.number }} of {{ item_list.paginator.num_pages }}</a></li>-->
+
+                {% for i in nums %}
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li></strong>
+
+                {% endfor %}
+
+                {% if item_list.has_next %}
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ item_list.next_page_number }}">Next</a></li></strong>
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ item_list.paginator.num_pages }}">Last &raquo;</a></li></strong>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </center>
 </div>
 {% endblock %}
+

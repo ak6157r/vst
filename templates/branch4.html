@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in branch4 %}
+            {% for item in br4 %}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.iccid1}}</td>
@@ -27,6 +27,28 @@
             {% endfor %}
         </tbody>
     </table>
+    <br>
+    <center>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if br4.has_previous %}
+                    <strong><li></li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></strong>
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ br4.previous_page_number }}">Previous</a></strong></li>
+                {% endif %}
+
+                <!--Page {{ br4.number }} of {{ br4.paginator.num_pages }}-->
+
+                {% for i in number %}
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li></strong>
+                {% endfor %}
+                
+                {% if br4.has_next %}
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ br4.next_page_number }}">Next</a></li></strong>
+                    <strong><li class="page-item"><a class="page-link" href="?page={{ br4.paginator.num_pages }}">Last &raquo;</a></li></strong>
+                {% endif %}
+            </ul>
+        </nav>
+    </center>
 </div>
 
 {% endblock %}
