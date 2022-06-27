@@ -44,7 +44,7 @@ def update(request,item_id):
         form = ItemsForm(request.POST,instance=item)
         if form.is_valid():
             form.save()
-            messages.success(request,"Item updated successfully!")
+            messages.success(request,"Item has been updated successfully!")
             return redirect('home')
     return render(request,'update.html',{'form':form})
 
@@ -78,7 +78,7 @@ def upload(request):
             STATUS=column[7],
         )
     context = {}
-    messages.success(request,"Items uploaded successfully!")
+    messages.success(request,"Items have been uploaded successfully!")
     return render(request, templates, context)
 
 def branch2(request):
@@ -107,7 +107,7 @@ def update2branch2(request, branch2_id):
         form = Branch1Form(request.POST,instance=branch2)
         if form.is_valid():
             form.save()
-            messages.success(request,"Items updated successfully")
+            messages.success(request,"Item has been updated successfully")
             return redirect('branch2')
     return render(request,'update2branch2.html',{'form':form})
 
@@ -135,7 +135,7 @@ def upload2branch2(request):
             status=column[2],
         )
     context = {}
-    messages.success(request,"Items uploaded successfully!")
+    messages.success(request,"Item has been uploaded successfully!")
     return render(request, templates, context)
 
 def search_branch3(request):
@@ -177,7 +177,7 @@ def add2branch3(request):
         form = Branch2Form(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Items added successfully!")
+            messages.success(request,"Item added successfully!")
             return redirect('branch3')
     return render(request,'add2branch3.html',{'form':form})
 
@@ -188,13 +188,13 @@ def update2branch3(request, branch3_id):
         form = Branch2Form(request.POST,instance=branch3)
         if form.is_valid():
             form.save()
-            messages.success(request,"Item updated successfully!")
+            messages.success(request,"Item has been updated successfully!")
             return redirect('branch3')
     return render(request,'update2branch3.html',{'form':form})
 
 def delete2branch3(request, branch3_id):
     branch3.objects.get(id=branch3_id).delete()
-    messages.success(request,"item deleted successfully!")
+    messages.success(request,"item has been deleted successfully!")
     return redirect('branch3')
 
 def upload2branch3(request):
@@ -217,7 +217,7 @@ def upload2branch3(request):
             status = column[2],
         )
     context = {}
-    messages.success(request,"Items uploaded successfully!")
+    messages.success(request,"Item has been uploaded successfully!")
     return render(request, templates, context)
 
 def branch4(request):
@@ -239,7 +239,7 @@ def add2branch4(request):
         form = Branch3Form(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Item added successfully!")
+            messages.success(request,"Item has been added successfully!")
             return redirect('branch4')
     return render(request,'add2branch4.html',{'form':form})
 
@@ -250,13 +250,13 @@ def update2branch4(request, branch4_id):
         form = Branch3Form(request.POST,instance=branch4)
         if form.is_valid():
             form.save()
-            messages.success(request,"Items updated successfully!")
+            messages.success(request,"Item has been updated successfully!")
             return redirect('branch4')
     return render(request,'update2branch4.html',{'form':form})
 
 def delete2branch4(request, branch4_id):
     Branch3.objects.get(id=branch4_id).delete()
-    messages.success(request,"Item deleted successfully!")
+    messages.success(request,"Item has been deleted successfully!")
     return redirect('branch4')
 
 def upload2branch4(request):
@@ -280,7 +280,7 @@ def upload2branch4(request):
             status = column[3],
         )
     context = {}
-    messages.success(request,"Items uploaded successfully!")
+    messages.success(request,"Item has been uploaded successfully!")
     return render(request, templates, context)
 
 def export_csv(request):
