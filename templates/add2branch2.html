@@ -1,15 +1,26 @@
 {% extends 'base2.html' %}
 
 {% block body %}
-
+<center>
 <div class="container">
     <div class="col-4">
-        <form action="{% url 'add2branch2' %}" method="post">
+        <form action="{% url 'add2branch2' %}" method="post" id="iccid">
             {% csrf_token %}
             {{ form.as_p}}
             <button type="submit" class="btn btn-primary btn-md">ADD</button>
         </form>
     </div>
 </div>
+</center>
+<style>
+    #iccid{
+        margin-top: 120px;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+</style>
 
 {% endblock %}

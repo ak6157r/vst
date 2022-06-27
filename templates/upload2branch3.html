@@ -3,7 +3,7 @@
 {% block body %}
 
 <center>
-    <div class="col-4">
+    <div class="col-4" id="col">
     {% if messages %}
         {% for message in messages %}
             <div>
@@ -17,10 +17,19 @@
         <label>Upload a file</label>
         <input type="file" name="filess">
         <p>Only accepts csv files</p>
-        <button type="submit">Upload</button>
+        <button type="submit" class="btn btn-success btn-md">Upload</button>
     </form>
     </div>
-    </center>
-    {% endif %}    
+    
+    {% endif %}   
+</center>
+<style>
+    #col{
+        margin-top: 130px;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 20px;
+    }
+</style> 
 
 {% endblock %}

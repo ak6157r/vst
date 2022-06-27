@@ -1,14 +1,25 @@
 {% extends 'base2.html' %}
 
 {% block body %}
+<center>
 <div class="container">
     <div class="col-4">
-        <form action="#" method="post">
+        <form action="#" method="post" id="imsi">
             {% csrf_token %}
             {{ form.as_p}}
-            <button type="submit" class="btn btn-primary btn-md">UPDATE</button>
+            <button type="submit" class="btn btn-success btn-md" id="btn">UPDATE</button>
         </form>
     </div>
 </div>
-
+</center>
+<style>
+    #imsi{
+        margin-top: 130px;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+</style>
 {% endblock %}
