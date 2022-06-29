@@ -193,7 +193,7 @@ def update2branch3(request, branch3_id):
     return render(request,'update2branch3.html',{'form':form})
 
 def delete2branch3(request, branch3_id):
-    Branch3.objects.get(id=branch3_id).delete()
+    Branch2.objects.get(id=branch3_id).delete()
     messages.success(request,"item has been deleted successfully!")
     return redirect('branch3')
 
