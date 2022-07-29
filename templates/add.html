@@ -7,7 +7,7 @@
         <form action="#" method="post">
             {% csrf_token %}
             {{ form.as_p}}
-            <button type="submit" class="btn btn-success btn-md">ADD</button>
+            <button type="submit" class="btn btn-success btn-md" id="add">ADD</button>
         </form>
     </div>
 </div>
@@ -18,6 +18,13 @@
     form{
         margin-top: 40px;
         margin-bottom: 40px;
+    }
+    #add{
+        margin-left: 500px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 </style>
 {% endblock %}
