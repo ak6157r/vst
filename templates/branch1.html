@@ -6,6 +6,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>ICCID1</th>
                 <th>MSISDN1</th>
                 <th>STATUS</th>
@@ -14,11 +15,12 @@
         <tbody>
             {% for item in br %}
             <tr>
+                <td>{{item.id}}</td>
                 <td>{{item.iccid1}}</td>
                 <td>{{item.msisdn1}}</td>
                 <td>{{item.status}}</td>
-                <td><a href="{% url 'update2branch2' item.id %}" class="btn btn-warning btn-md">Update</a></td>
-                <td><a href="{% url 'delete2branch2' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
+                <td><a href="{% url 'update2branch2' item.id %}" class="btn btn-warning btn-md" id="update">Update</a></td>
+                <td><a href="{% url 'delete2branch2' item.id %}" class="btn btn-danger btn-md" id="delete">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -47,12 +49,10 @@
     </center>
 </div>
 <style>
-    body{
-        background-color: lightgray;
+    #update{
+        float: right;
     }
-    .page-link{
-        background-color:cornsilk;
-    }
+        
 </style>
 
 {% endblock %}

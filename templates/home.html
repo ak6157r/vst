@@ -18,6 +18,7 @@
         <tbody>
             {% for item in item_list %}
             <tr>
+                <td>{{item.id}}</td>
                 <td>{{item.ICCID1}}</td>
                 <td>{{item.IMSI1}}</td>
                 <td>{{item.MSISDN1}}</td>
@@ -26,8 +27,8 @@
                 <td>{{item.MSISDN2}}</td>
                 <td>{{item.IMEI}}</td>
                 <td>{{item.STATUS}}</td>
-                <td><a href="{% url 'update' item.id %}" class="btn btn-warning btn-md">Update</a></td>
-                <td><a href="{% url 'delete' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
+                <td><a href="{% url 'update' item.id %}" class="btn btn-warning btn-md" id="update">Update</a></td>
+                <td><a href="{% url 'delete' item.id %}" class="btn btn-danger btn-md" id="delete">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -59,11 +60,8 @@
 </div>
 
 <style>
-    body{
-        background-color:lightgray;
-    }
-    .pagination{
-        background-color: lightgray;
+    #update{
+        float: right;
     }
 </style>
 {% endblock %}
