@@ -30,7 +30,7 @@
                         <td>{{item.MSISDN2}}</td>
                         <td>{{item.IMEI}}</td>
                         <td>{{item.STATUS}}</td>
-                        <td><a href="{% url 'update' item.id %}" class="btn btn-success btn-md">Update</a></td>
+                        <td><a href="{% url 'update' item.id %}" class="btn btn-warning btn-md">Update</a></td>
                         <td><a href="{% url 'delete' item.id %}" class="btn btn-danger btn-md">Delete</a></td>
                     </tr>
                     {% endfor %}
