@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="container">
+<div class="container-fluid">
     <table class="table table-hover">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>ICCID1</th>
                 <th>IMSI1</th>
                 <th>MSISDN1</th>
@@ -13,6 +14,7 @@
                 <th>MSISDN2</th>
                 <th>IMEI</th>
                 <th>STATUS</th>
+                <th id="action">ACTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -26,7 +28,11 @@
                 <td>{{item.IMSI2}}</td>
                 <td>{{item.MSISDN2}}</td>
                 <td>{{item.IMEI}}</td>
+                {% if item.STATUS == 'INACTIVE' %}
+                <td class="text-danger">{{item.STATUS}}</td>
+                {% else %}
                 <td>{{item.STATUS}}</td>
+                {% endif %}
                 <td><a href="{% url 'update' item.id %}" class="btn btn-warning btn-md" id="update">Update</a></td>
                 <td><a href="{% url 'delete' item.id %}" class="btn btn-danger btn-md" id="delete">Delete</a></td>
             </tr>
@@ -61,6 +67,9 @@
 
 <style>
     #update{
+        float: right;
+    }
+    #action{
         float: right;
     }
 </style>
