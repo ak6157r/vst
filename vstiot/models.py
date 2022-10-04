@@ -14,6 +14,8 @@ class Items(models.Model):
         ('ACTIVE','active'),
         ('INACTIVE','not active'),
     )
+    ACTIVATION = models.DateTimeField()
+    EXPIRY = models.DateTimeField()
     STATUS = models.CharField(max_length=50,blank=False,choices=choices,default='INACTIVE')
     
 class Branch1(models.Model):
