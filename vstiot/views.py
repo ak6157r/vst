@@ -12,7 +12,7 @@ from django.core.paginator import Paginator
 
 def home(request):
     items = Items.objects.all()
-    p = Paginator(Items.objects.all(), 10)
+    p = Paginator(Items.objects.get_queryset().order_by('id'), 10)
     page = request.GET.get('page')
     item_list = p.get_page(page)
     nums = "a" * item_list.paginator.num_pages
@@ -83,7 +83,7 @@ def upload(request):
 
 def branch2(request):
     branch1 = Branch1.objects.all()
-    pagination = Paginator(Branch1.objects.all(), 10)
+    pagination = Paginator(Branch1.objects.get_queryset().order_by('id'), 10)
     pages = request.GET.get('page')
     br = pagination.get_page(pages)
     numbers = "z" * br.paginator.num_pages
@@ -150,7 +150,7 @@ def search_branch3(request):
     
 def branch3(request):
     branch3 = Branch2.objects.all()
-    pg = Paginator(Branch2.objects.all(), 10)
+    pg = Paginator(Branch2.objects.get_queryset().order_by('id'), 10)
     pagez = request.GET.get('page')
     br3 = pg.get_page(pagez)
     numb = "c" * br3.paginator.num_pages
@@ -222,7 +222,7 @@ def upload2branch3(request):
 
 def branch4(request):
     branch4 = Branch3.objects.all()
-    pgs = Paginator(Branch3.objects.all(), 10)
+    pgs = Paginator(Branch3.objects.get_queryset().order_by('id'), 10)
     pags = request.GET.get('page')
     br4 = pgs.get_page(pags)
     number = "n" * br4.paginator.num_pages
