@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results Table</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+
+        .table-container {
+            width: 80%;
+            max-width: 1000px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-container h3 {
+            background-color: #008080;
+            color: white;
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #008080;
+            color: white;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #e0f7f7;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+        mark{
+            background-color: red;
+            color: white;
+            font-weight: 700;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .no-results{
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    {% if search %}
+    <div class="table-container">
+        <h3>Search Results</h3>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ICCID1</th>
+                    <th>IMSI1</th>
+                    <th>MSISDN1</th>
+                    <th>ICCID2</th>
+                    <th>IMSI2</th>
+                    <th>MSISDN2</th>
+                    <th>IMEI</th>
+                    <th>SERIAL</th>
+                    <th>ACTIVATION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr class="#">
+                    <td>{{ result.id }}</td>
+                    <td>{{ result.highlighted_iccid1|safe }}</td>
+                    <td>{{ result.highlighted_imsi1|safe }}</td>
+                    <td>{{ result.highlighted_msisdn1|safe }}</td>
+                    <td>{{ result.highlighted_iccid2|safe }}</td>
+                    <td>{{ result.highlighted_imsi2|safe }}</td>
+                    <td>{{ result.highlighted_msisdn2|safe }}</td>
+                    <td>{{ result.highlighted_imei|safe }}</td>
+                    <td>{{ result.highlighted_serial|safe }}</td>
+                    <td>{{ result.highlighted_activation|safe }}</td>
+                </tr>
+                {% empty %}
+                   <tr>
+                        <td colspan="10" style="text-align: center; color: red;">No results found</td>
+                   </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p>Please enter a search query to see the result.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            /* Prevent scrollbars */
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #008080;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            font-size: 16px;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #f4f4f4;
+        }
+
+        /* Main Container */
+        .container {
+            width: 600px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Tabs and Tab Content Styles */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            background-color: #dddddd;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: #006666;
+        }
+
+        .tab:hover {
+            background-color: #006666;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .search-field {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .search-field input {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-field input:focus {
+            border-color: #008080;
+            outline: none;
+        }
+
+        .search-field button {
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-field button:hover {
+            background-color: #006666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">VST</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" data-target="iccid">ICCID</div>
+            <div class="tab" data-target="imsi">IMSI</div>
+            <div class="tab" data-target="msisdn">MSISDN</div>
+            <div class="tab" data-target="imei">IMEI</div>
+        </div>
+        <form action="{% url 'main_search' %}" method="post">
+            {% csrf_token %}
+            <div id="iccid" class="tab-content active">
+                <h3>Search by ICCID</h3>
+                <div class="search-field">
+                    <input type="text" placeholder="Enter ICCID..." name="search">
+                    <button>Search</button>
+                </div>
+            </div>
+        </form>
+        
+        <div id="imsi" class="tab-content">
+            <h3>Search by IMSI</h3>
+            <div class="search-field">
+                <input type="text" placeholder="Enter IMSI...">
+                <button>Search</button>
+            </div>
+        </div>
+
+        <div id="msisdn" class="tab-content">
+            <h3>Search by MSISDN</h3>
+            <div class="search-field">
+                <input type="text" placeholder="Enter MSISDN...">
+                <button>Search</button>
+            </div>
+        </div>
+
+        <div id="imei" class="tab-content">
+            <h3>Search by IMEI</h3>
+            <div class="search-field">
+                <input type="text" placeholder="Enter IMEI...">
+                <button>Search</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tab.dataset.target) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
